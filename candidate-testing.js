@@ -33,17 +33,31 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+  let count = 0;
   console.log(`\n\n\nCandidate Name: ${candidateName}`);
   for(i = 0; i < questions.length; i++)
   {
     console.log(`${i+1}) ${questions[i]}`);
     console.log(`Your Answer: ${candidateAnswers[i]}`);
     console.log(`Correct Answer: ${correctAnswers[i]}\n`);
+
+    candidateAnswers[i] = candidateAnswers[i].toLowerCase();
+    correctAnswers[i] = correctAnswers[i].toLowerCase();
+    if(candidateAnswers[i] == correctAnswers[i])
+    {
+      count++;
+    }
   }
 
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade = (count/questions.length)*100;  //TODO 3.2 use this variable to calculate the candidates score.
+  console.log(`>>> Overall Gade: ${grade}% (${count} of ${questions.length} responses correct) <<<`);
 
+  if(grade >= 80)
+    {
+      console.log(">>> Status: PASSED <<<");
+    }
+    else console.log(">>> Status: FAILED <<<");
 
   return grade;
 }
