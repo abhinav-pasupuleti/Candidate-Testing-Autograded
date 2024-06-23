@@ -51,7 +51,7 @@ function gradeQuiz(candidateAnswers) {
 
 
   let grade = (count/questions.length)*100;  //TODO 3.2 use this variable to calculate the candidates score.
-  console.log(`>>> Overall Gade: ${grade}% (${count} of ${questions.length} responses correct) <<<`);
+  console.log(`>>> Overall Grade: ${grade}% (${count} of ${questions.length} responses correct) <<<`);
 
   if(grade >= 80)
     {
